@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    @*<script src="/js/chat.js"></script>*@
+    <script>
+        $(document).ready(function () {
+            var chatInput = $("#txtInput");
+          //  var roomInput = $("#txtRoom");
+            var roomInput = $("#currentRoom");
+            var userName = prompt("Enter a username");
+            var chat = $.connection.chatHub;
+            //    addToGroup(chatHub)
+            chat.connection.qs = { 'username': userName };
+            chat.client.messageReceived = function (username, message) {
+                $("ul").append("<li><b>" + username + ": </b><i>"
+                    + message + "</i></li>");
+            };
+
+            $.connection.hub.start().done(function () {
+                console.log("hub started!");
+                chatInput.keydown(function (e) {
+                    if (e.which === 13) {
+                        var text = chatInput.val();
+                        chat.server.sendMessage(userName, text);
+                       // chat.server.sendMessageToGroup(text);
+
+                        chatInput.val("");
+                        self.focus();
+                    }
+                })
+            });
+
+            chatInput.focus();
+        });
+
+
+
+
+
+
+    </script>
+    <script>
+      
+            //console.log("hub");
+         roomInput.keydown(function (e) {
+            if (e.which === 13) {
+                chat.addMessage = function (message, room) {
+
+                    if ($('#currentRoom').val() == room) {
+                        $('#ul').append('<li>' + message + '</li>');
+                    }
+                    chat.send($('#txtInput').val(), $('#currentRoom').val());
+                    $('#txtInput').val("");
+                }
+            }
+        }
+    </script>
+   
+</head>
+<body>
+  
+    <div>
+        <input type="text" id="txtInput" />
+        <input type="text" id="currentRoom" />
+        <button id="join-group" type="button">Join Group</button>
+        <hr />
+        <ul></ul>
+    </div>
+        <div>
+         
+            <hr />
+            <ul></ul>
+        </div>
+
+  
+</body>
+</html>
