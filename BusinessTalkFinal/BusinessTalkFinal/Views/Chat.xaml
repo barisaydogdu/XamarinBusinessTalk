@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusinessTalkFinal.Views.Chat"
+             xmlns:models="clr-namespace:BusinessTalkFinal.Models"
+             NavigationPage.HasBackButton="False"
+              BackgroundImage="arkaplanmavi.jpg">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Odaya Katıl"  Clicked="ToolbarItem_Clicked"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+   
+                        <StackLayout>
+                        <ListView  
+                         HasUnevenRows="True"
+                          x:Name="messagelist" 
+                          ItemsSource="{Binding .}">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <TextCell TextColor="Orange"   Text="{Binding username}" 
+                                 DetailColor="White"  Detail="{Binding message}">
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Frame Padding="0" CornerRadius="10">
+            <StackLayout  BackgroundColor="WhiteSmoke" Orientation="Horizontal">
+                    <Entry x:Name="txtMessage"
+                      Placeholder="Message"
+                      PlaceholderColor="Black"
+                      WidthRequest="300"
+                      FontSize="Small"
+                      HorizontalOptions="FillAndExpand"/>
+                    <Button x:Name="btnsend" Clicked="Btnsend_Clicked" 
+                       Image="sendblack.png"
+                        BackgroundColor="WhiteSmoke"
+                        HorizontalOptions="EndAndExpand"
+                       WidthRequest="40"
+                       HeightRequest="40"
+                        CornerRadius="40"/>
+            </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

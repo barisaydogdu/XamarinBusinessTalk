@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="BusinessTalkFinal.Views.NewItemPage"
+             Title="Oda Ayarları"
+             BackgroundImage="arkaplanmavi">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="İptal"  Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Kaydet" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <StackLayout>
+            <StackLayout Spacing="50">
+            
+                <Label Margin="0,0,0,10" Text="Oda Ekle" IsVisible="False" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" ></Label>
+                <StackLayout Spacing="20" Padding="20">
+                    <Entry x:Name="txtId"  TextColor="White" PlaceholderColor="White" Placeholder=" Oda ID "></Entry>
+                    <Entry x:Name="txtName"  TextColor="White" Placeholder="Oda Adı" PlaceholderColor="White"></Entry>
+                    <!--<Editor x:Name="txtaciklama" Placeholder="Açıklama Giriniz"/>-->
+                </StackLayout>
+                <!--<StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked"/>
+                    <Button x:Name="btnRetrive" WidthRequest="200" Text="Retrive" Clicked="BtnRetrive_Clicked"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Button x:Name="btnUpdate" WidthRequest="200" Text="Update" Clicked="BtnUpdate_Clicked" />
+                    <Button x:Name="btnDelete" WidthRequest="200" Text="Delete" Clicked="BtnDelete_Clicked" />
+                </StackLayout>-->
+                <StackLayout Padding="20" Spacing="20">
+                    <Button  x:Name="btnAdd" BackgroundColor="Orange"  Text="Oda Ekle"  TextColor="White"   CornerRadius="20" Clicked="BtnAdd_Clicked"/>
+                    <Button x:Name="btnRetrive" Text="Getir" BackgroundColor="Yellow"  TextColor="Black" CornerRadius="20" Clicked="BtnRetrive_Clicked"/>
+                    <Button x:Name="btnUpdate" Text="Güncelle" BackgroundColor="Orange" CornerRadius="20" TextColor="White" Clicked="BtnUpdate_Clicked" />
+                    <Button x:Name="btnDelete" Text="Sil" CornerRadius="20"  BackgroundColor="Yellow" TextColor="Black" Clicked="BtnDelete_Clicked" />
+                </StackLayout>
+                <!--<ListView x:Name="lstPersons">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}"></TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>  

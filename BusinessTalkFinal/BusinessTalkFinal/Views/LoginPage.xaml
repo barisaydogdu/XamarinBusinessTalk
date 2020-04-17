@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusinessTalkFinal.Views.LoginPage"
+             Title="Giriş Yap"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.BackButtonTitle="False"
+             BackgroundImage="arkaplanmavi.jpg">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="50"
+            Orientation="Vertical">
+                <StackLayout VerticalOptions="Start">
+                    <Image   Source="businesstalklogobeyaz.png"
+                             VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout Spacing="10" Padding="50">
+                    <Entry  x:Name = "Email"
+                            Placeholder="Email"
+                            Text="{Binding Email}"
+                            FontSize="Small"
+                            Keyboard="Email"
+                            TextColor="White"
+                            PlaceholderColor="White"/>
+                  
+                    <Entry  Placeholder="Parola"
+                            x:Name = "Parola"
+                            Text="{Binding Password}"
+                            PlaceholderColor="White"   
+                            IsPassword="True"
+                            TextColor="White"
+                            FontSize="Small"/>
+                    <Button BorderRadius="30"
+                            x:Name= "loginbtn"
+                            Text="Giriş Yap"
+                            Command="{Binding LoginCommand}"
+                            BackgroundColor="Yellow"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+<!--<ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name = "Email" Placeholder = "Email" Text="{Binding Email}"
+                   HeightRequest = "40"
+                   Keyboard = "Email"/>
+            <Entry x:Name = "Password" Text="{Binding Password}" Placeholder = "Password"
+                   HeightRequest = "40"
+                   IsPassword = "True"/>
+            <Button x:Name= "loginbtn" Text = "Login " 
+                    Command="{Binding LoginCommand}"
+                    HorizontalOptions = "FillAndExpand"/>
+            <Button x:Name="signup" Text="SignUp" Command="{Binding SignUp}" HorizontalOptions="End"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>-->
+    

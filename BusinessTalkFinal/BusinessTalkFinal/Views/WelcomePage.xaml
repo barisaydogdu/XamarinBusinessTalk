@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusinessTalkFinal.Views.WelcomePage" 
+             Title="Profil"
+             BackgroundImage="arkaplanmavi.jpg">
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Priority="0" Order="Secondary" x:Name="deletebtnq" Text="Hesabı Sil" Clicked="Deletebtnq_Clicked" ></ToolbarItem>
+        <ToolbarItem Priority="0" Order="Secondary" x:Name="changepass" Text="Şifre Değiştir" Clicked="Changepass_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <StackLayout Padding="40">
+                <Frame CornerRadius="100" 
+           HeightRequest="200"
+           WidthRequest="200"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+          <Image Source="businessq.jpg" 
+           HorizontalOptions="Center"
+           VerticalOptions="Center" />
+                </Frame>
+            </StackLayout>
+            <!--<StackLayout VerticalOptions="Start" Padding="40">
+            <Image Source="businessmanq.jpg"></Image>
+            </StackLayout>-->
+                <StackLayout>
+                <Label Text="{Binding Email, StringFormat='Merhaba {0:N}'}" TextColor="White" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold" Margin="10"/>
+                <Entry Text="{Binding Password}"  x:Name="passq"  PlaceholderColor="White" FontAttributes="Bold" IsPassword="True" Margin="5,5" IsVisible="False" FontSize="Small"  Placeholder="Yeni Şifre Belirleyiniz"/>
+                    <Entry  Text="{Binding Password}" x:Name="entrydelete" IsVisible="False" PlaceholderColor="White" FontAttributes="Bold" IsPassword="True" FontSize="Small" Margin="5,5"  Placeholder="Şifreyi Doğrulayınız" />
+                    <Button x:Name="updatebtn" IsVisible="False"  Text="Şifre Değiştir" CornerRadius="20" BackgroundColor="Yellow" Command="{Binding UpdateCommand}" />
+                    <!--<Button x:Name="deletebtn" Text="Delete Account" Command="{Binding DeleteCommand}"/>-->
+                    <Button x:Name="deleteq" IsVisible="False" Text="Hesabı Sil" CornerRadius="20" TextColor="White" BackgroundColor="Orange" Command="{Binding DeleteCommand}"/>
+                    <StackLayout VerticalOptions="End">
+                        
+                    <Button x:Name="logoutbtn" CornerRadius="20" Text="Çıkış Yap" VerticalOptions="End" BackgroundColor="Red" TextColor="White" Command="{Binding LogoutCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+        </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
